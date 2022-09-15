@@ -1,0 +1,20 @@
+﻿<Window x:Class="Boards.PcbManufacturing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Boards.PcbManufacturing" xmlns:views="clr-namespace:Boards.PcbManufacturing.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Preferences">
+                <views:PreferencesView DataContext="{Binding }"></views:PreferencesView>
+            </TabItem>
+            <TabItem Header="Quote">
+            </TabItem>
+            <TabItem Header="Order">
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

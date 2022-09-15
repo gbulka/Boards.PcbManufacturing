@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.PcbManufacturing", "Boards.PcbManufacturing\Boards.PcbManufacturing.csproj", "{388ECDB2-AAB6-40E0-8200-3514D4FBE176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boards.Dto", "Boards.Dto\Boards.Dto.csproj", "{509CA210-7FDB-4708-9D36-7411C0FCE6D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{388ECDB2-AAB6-40E0-8200-3514D4FBE176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388ECDB2-AAB6-40E0-8200-3514D4FBE176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388ECDB2-AAB6-40E0-8200-3514D4FBE176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388ECDB2-AAB6-40E0-8200-3514D4FBE176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509CA210-7FDB-4708-9D36-7411C0FCE6D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509CA210-7FDB-4708-9D36-7411C0FCE6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509CA210-7FDB-4708-9D36-7411C0FCE6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509CA210-7FDB-4708-9D36-7411C0FCE6D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B389AC3B-C502-41FE-BC5A-D4CB8C90A3D0}
+	EndGlobalSection
+EndGlobal
