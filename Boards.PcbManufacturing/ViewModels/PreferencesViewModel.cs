@@ -3,7 +3,7 @@ using Boards.PcbManufacturing.BaseModel;
 
 namespace Boards.PcbManufacturing.ViewModels
 {
-    internal class PreferencesViewModel : ViewModelBase
+    public class PreferencesViewModel : ViewModelBase
     {
         private string _projectName;
         private string _zipCode;
