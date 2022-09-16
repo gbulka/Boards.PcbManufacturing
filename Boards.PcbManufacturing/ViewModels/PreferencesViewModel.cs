@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Xml.Linq;
 using Boards.Dto;
 using Boards.PcbManufacturing.BaseModel;
@@ -28,7 +31,7 @@ namespace Boards.PcbManufacturing.ViewModels
         }
 
         [Required(ErrorMessage = "Zipcode is required.")]
-        [RegularExpression(@"|\d{2}-\d{3}", ErrorMessage = "This value is not a postal code.")]
+        [RegularExpression(@"\d{2}-\d{3}", ErrorMessage = "This value is not a postal code.")]
         public string ZipCode
         { 
             get => _zipCode; 
@@ -39,6 +42,8 @@ namespace Boards.PcbManufacturing.ViewModels
             }
         }
 
+        [Required(ErrorMessage = "Boards Quantity is required.")]
+        [RegularExpression(@"\d{*}", ErrorMessage = "Integer value required.")]
         public int BoardsQuantity
         {
             get => _boardsQuantity; 
@@ -87,6 +92,21 @@ namespace Boards.PcbManufacturing.ViewModels
                 _color = value;
                 this.OnPropertyChanged();
             } 
+        }
+
+        public ObservableCollection<Material> MaterialsDataSource
+        {
+            get
+            {
+                return new ObservableCollection<Material>(
+                    new Material[] {
+                        new Material { Id = 1, Name = "Steel" },
+                        new Material { Id = 2, Name = "Wood" },
+                        new Material { Id = 3, Name = "Rubber" },
+                        new Material { Id = 4, Name = "Plastic" },
+                        new Material { Id = 5, Name = "Stone" },
+                    });
+            }
         }
     }
 }
