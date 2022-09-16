@@ -9,7 +9,7 @@
     <Grid>
         <TabControl>
             <TabItem Header="Preferences">
-                <views:PreferencesView DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}"></views:PreferencesView>
+                <views:PreferencesView DataContext="{Binding}"></views:PreferencesView>
             </TabItem>
             <TabItem Header="Quote">
             </TabItem>

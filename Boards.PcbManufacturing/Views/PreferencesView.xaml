@@ -10,23 +10,45 @@
     <UserControl.DataContext>
         <viewmodels:PreferencesViewModel/>
     </UserControl.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto">
-            </RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <Label Grid.Column="0">Project Basics</Label>
-            <Label Grid.Column="0">Preferences on this page supersede desing file notes</Label>
-        </StackPanel>
-        <Label Grid.Column="1" HorizontalAlignment="Right">Project Name</Label>
-        <TextBox Grid.Column="2" Text="{Binding ProjectName}"></TextBox>
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="5">
+                <Label>Project Basics</Label>
+                <Label>Preferences on this page supersede desing file notes</Label>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalAlignment="Right">Project Name</Label>
+                    <TextBox Grid.Column="1" VerticalAlignment="Top" Text="{Binding ProjectName, Mode=TwoWay}" Height="18" Width="200" HorizontalAlignment="Left" Margin="5"></TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalAlignment="Right">Zipcode</Label>
+                    <TextBox Grid.Column="1" VerticalAlignment="Top" Text="{Binding ZipCode, Mode=TwoWay}" Height="18" Width="100" HorizontalAlignment="Left" Margin="5"></TextBox>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalAlignment="Right">Boards Quantity</Label>
+                    <TextBox Grid.Column="1" VerticalAlignment="Top" Text="{Binding BoardsQuantity, Mode=TwoWay}" Height="18" Width="50" HorizontalAlignment="Left" Margin="5"></TextBox>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+        
+    </StackPanel>
 </UserControl>
