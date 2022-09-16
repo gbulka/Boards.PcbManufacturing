@@ -28,11 +28,7 @@ namespace Boards.PcbManufacturing.ViewModels
         }
 
         [Required(ErrorMessage = "Zipcode is required.")]
-        [RegularExpression(
-            @"(^\d{5}(-\d{4})?$)"+
-            @"|(^[ABCEGHJKLMNPRSTVXYabceghjklmnprstvxy]{1}\d{1}[ABCEGHJKLMNPRSTVWXYZabceghjklmnprstv‌​xy]{1} *\d{1}[ABCEGHJKLMNPRSTVWXYZabceghjklmnprstvxy]{1}\d{1}$)"+
-            @"|\d{2}-\d{3}", 
-            ErrorMessage = "That postal code is not a valid US or Canadian postal code.")]
+        [RegularExpression(@"|\d{2}-\d{3}", ErrorMessage = "This value is not a postal code.")]
         public string ZipCode
         { 
             get => _zipCode; 

@@ -5,11 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Boards.PcbManufacturing.Views"
              xmlns:viewmodels="clr-namespace:Boards.PcbManufacturing.ViewModels"
+             xmlns:converters="clr-namespace:Boards.PcbManufacturing.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <viewmodels:PreferencesViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <converters:ErrorToBrushConverter x:Key="ErrorToBrush"/>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="ToolTip">
+                <Setter.Value>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(Validation.Errors)[0].ErrorContent" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <Binding RelativeSource="{RelativeSource Self}" 
+                             Path="(Validation.Errors)[0].ErrorContent" 
+                             Converter="{StaticResource ErrorToBrush}" 
+                             ConverterParameter="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="20" />
+        </Style>
+    </UserControl.Resources>
     <StackPanel Orientation="Vertical">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -36,7 +56,10 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" HorizontalAlignment="Right">Zipcode</Label>
-                    <TextBox Grid.Column="1" VerticalAlignment="Top" Text="{Binding ZipCode, Mode=TwoWay}" Height="18" Width="100" HorizontalAlignment="Left" Margin="5"></TextBox>
+                    <TextBox Grid.Column="1" VerticalAlignment="Top"
+                             Height="18" Width="100" HorizontalAlignment="Left" Margin="5"
+                             Text="{Binding ZipCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                             />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
