@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -12,7 +11,7 @@ namespace Boards.PcbManufacturing.Converters
         {
             if (value == null)
             {
-                return Brushes.Black;
+                return Brushes.Black; // TODO: find out how not to touch the border in this case
             }
 
             return Brushes.Red;
