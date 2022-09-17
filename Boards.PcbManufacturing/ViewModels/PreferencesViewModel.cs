@@ -84,7 +84,7 @@ namespace Boards.PcbManufacturing.ViewModels
             } 
         }
 
-        public Color Color 
+        public Color SolderMaskColor 
         { 
             get => _color; 
             set 
@@ -94,19 +94,8 @@ namespace Boards.PcbManufacturing.ViewModels
             } 
         }
 
-        public ObservableCollection<Material> MaterialsDataSource
-        {
-            get
-            {
-                return new ObservableCollection<Material>(
-                    new Material[] {
-                        new Material { Id = 1, Name = "Steel" },
-                        new Material { Id = 2, Name = "Wood" },
-                        new Material { Id = 3, Name = "Rubber" },
-                        new Material { Id = 4, Name = "Plastic" },
-                        new Material { Id = 5, Name = "Stone" },
-                    });
-            }
-        }
+        public ObservableCollection<Material> MaterialsDataSource { get; set; }
+        public ObservableCollection<SurfaceFinish> SurfaceFinishDataSource { get; set; }
+        public ObservableCollection<Color> SolderMaskColorsDataSource { get; set; }
     }
 }

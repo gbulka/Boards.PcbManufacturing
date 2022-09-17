@@ -1,8 +1,5 @@
 ﻿namespace Boards.Dto
 {
-    /// <summary>
-    /// This color class is defined intentionally, to present the usage of <see cref="IValueConverter"/>.
-    /// </summary>
     public class Color : DtoBase
     {
         public string Name { get; set; }
