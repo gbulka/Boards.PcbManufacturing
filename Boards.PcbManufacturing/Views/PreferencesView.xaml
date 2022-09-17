@@ -120,12 +120,18 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" HorizontalAlignment="Right">Solder Mask Color</Label>
-                    <ComboBox Grid.Column="1" VerticalAlignment="Top"
-                             Height="18" Width="100" HorizontalAlignment="Left" Margin="5"
-                             ItemsSource="{Binding SolderMaskColorsDataSource}"
-                             SelectedItem="{Binding SolderMaskColor}"
-                              DisplayMemberPath="Name"
-                             />
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Width="100" HorizontalAlignment="Left" Margin="4">
+                        <ComboBox ItemsSource="{Binding SolderMaskColorsDataSource}" SelectedItem="{Binding SolderMaskColor}" Width="120" Height="18">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Fill="{Binding Name}" Width="16" Height="16" Margin="0,2,5,2" />
+                                        <TextBlock Text="{Binding Name}" Width="100" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
                 </Grid>
             </StackPanel>
 
