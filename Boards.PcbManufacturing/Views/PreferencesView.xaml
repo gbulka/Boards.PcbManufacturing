@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Boards.PcbManufacturing.Views"
              xmlns:viewmodels="clr-namespace:Boards.PcbManufacturing.ViewModels"
              xmlns:converters="clr-namespace:Boards.PcbManufacturing.Converters"
              mc:Ignorable="d" 
@@ -28,6 +27,24 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Margin" Value="20" />
+        </Style>
+        <Style x:Key="OnOffToggleStyle" TargetType="ToggleButton">
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <TextBlock Text="Yes"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <TextBlock Text="No"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </UserControl.Resources>
     <StackPanel Orientation="Vertical">
@@ -132,6 +149,14 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </StackPanel>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalAlignment="Right">Lead Free</Label>
+                    <ToggleButton Style="{StaticResource OnOffToggleStyle}"></ToggleButton>
                 </Grid>
             </StackPanel>
 

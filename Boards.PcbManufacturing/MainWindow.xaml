@@ -9,9 +9,10 @@
     <Grid>
         <TabControl>
             <TabItem Header="Preferences">
-                <views:PreferencesView DataContext="{Binding}"></views:PreferencesView>
+                <views:PreferencesView DataContext="{Binding Path=Preferences}"></views:PreferencesView>
             </TabItem>
             <TabItem Header="Quote">
+                <views:QuoteView DataContext="{Binding Path=Quote}"></views:QuoteView>
             </TabItem>
             <TabItem Header="Order">
             </TabItem>
