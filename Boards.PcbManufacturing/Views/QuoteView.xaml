@@ -11,11 +11,17 @@
         <viewmodels:QuoteViewModel/>
     </UserControl.DataContext>
     <Grid>
+        <Grid.Resources>
+            <CollectionViewSource x:Key="GroupedQuoteEntries" Source="{Binding Path=QuoteEntries}">
+                <CollectionViewSource.GroupDescriptions>
+                    <PropertyGroupDescription PropertyName="Group" />
+                </CollectionViewSource.GroupDescriptions>
+            </CollectionViewSource>
+        </Grid.Resources>
         <DataGrid x:Name="dataGrid1" 
-                  ItemsSource="{Binding Path=QuoteEntries}"
+                  ItemsSource="{Binding Source={StaticResource GroupedQuoteEntries}}"
                   CanUserAddRows="False">
             <DataGrid.GroupStyle>
-                <!-- Style for groups at top level. -->
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
                         <Style TargetType="{x:Type GroupItem}">
@@ -27,7 +33,6 @@
                                             <Expander.Header>
                                                 <DockPanel>
                                                     <TextBlock FontWeight="Bold" Text="{Binding Path=Name}" Margin="5,0,0,0" Width="100"/>
-                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=ItemCount}"/>
                                                 </DockPanel>
                                             </Expander.Header>
                                             <Expander.Content>
@@ -39,17 +44,6 @@
                             </Setter>
                         </Style>
                     </GroupStyle.ContainerStyle>
-                </GroupStyle>
-                <!-- Style for groups under the top level. -->
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <DockPanel Background="LightBlue">
-                                <TextBlock Text="{Binding Path=Name, Converter={StaticResource completeConverter}}" Foreground="Blue" Margin="30,0,0,0" Width="100"/>
-                                <TextBlock Text="{Binding Path=ItemCount}" Foreground="Blue"/>
-                            </DockPanel>
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
                 </GroupStyle>
             </DataGrid.GroupStyle>
             <DataGrid.RowStyle>
