@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Boards.PcbManufacturing.Views"
              xmlns:viewmodels="clr-namespace:Boards.PcbManufacturing.ViewModels"
+             xmlns:dependencyproperties="clr-namespace:Boards.PcbManufacturing.DependencyProperties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
@@ -20,7 +21,8 @@
         </Grid.Resources>
         <DataGrid x:Name="dataGrid1" 
                   ItemsSource="{Binding Source={StaticResource GroupedQuoteEntries}}"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  dependencyproperties:CustomColumnHeadersProperty.ItemType="{x:Type viewmodels:QuoteEntryViewModel}">
             <DataGrid.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
