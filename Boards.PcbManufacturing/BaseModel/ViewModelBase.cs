@@ -32,7 +32,8 @@ namespace Boards.PcbManufacturing.BaseModel
                 return error;
             }
         }
-        public string Error => throw new System.NotImplementedException();
+
+        public virtual string Error => null;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

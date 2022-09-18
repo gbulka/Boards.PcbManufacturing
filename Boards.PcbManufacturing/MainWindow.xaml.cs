@@ -56,6 +56,9 @@ namespace Boards.PcbManufacturing
                             new QuoteEntryViewModel { Group = Constants.QuoteEntryGroups.Assembly, ParameterName = "Packages", ParameterValue = "Package on Packages", TimeImpact = TimeSpan.FromDays(1), CostImpact = 2700M },
                             new QuoteEntryViewModel { Group = Constants.QuoteEntryGroups.Assembly, ParameterName = "Processes", ParameterValue = "Split Assembly", TimeImpact = default, CostImpact = 720.50M },
                             new QuoteEntryViewModel { Group = Constants.QuoteEntryGroups.Assembly, ParameterName = "Minimum Pitch", ParameterValue = "0.3mm pitch BGA", TimeImpact = default, CostImpact = 804M },
+                            new QuoteEntryViewModel { Group = Constants.QuoteEntryGroups.Components, ParameterName = "Microchip 1500-AND", ParameterValue = "2", TimeImpact = default, CostImpact = 48 },
+                            new QuoteEntryViewModel { Group = Constants.QuoteEntryGroups.Components, ParameterName = "Microchip 3900-AND", ParameterValue = "2", TimeImpact = default, CostImpact = 70 },
+                            new QuoteEntryViewModel { Group = Constants.QuoteEntryGroups.Components, ParameterName = "Microchip N-AND", ParameterValue = "1", TimeImpact = default, CostImpact = 25 },
                         })
                 }
             };
