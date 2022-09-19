@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using Boards.PcbManufacturing.BaseModel;
 
 namespace Boards.PcbManufacturing.ViewModels
@@ -13,7 +12,6 @@ namespace Boards.PcbManufacturing.ViewModels
 
         public string Group { get; set; }
 
-        [Display(Name = "Parameter Name")]
         public string ParameterName
         { 
             get => _parameterName;
@@ -24,7 +22,6 @@ namespace Boards.PcbManufacturing.ViewModels
             }
         }
 
-        [Display(Name = "Parameter Value")]
         public string ParameterValue
         {
             get => _parameterValue;
@@ -35,7 +32,6 @@ namespace Boards.PcbManufacturing.ViewModels
             }
         }
 
-        [Display(Name = "Time Impact")]
         public TimeSpan TimeImpact 
         { 
             get => _timeImpact; 
@@ -46,7 +42,6 @@ namespace Boards.PcbManufacturing.ViewModels
             } 
         }
 
-        [Display(Name = "Cost Impact")]
         public decimal CostImpact 
         { 
             get => _costImpact; 

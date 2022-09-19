@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
+using System.Net.Http.Headers;
 using Boards.PcbManufacturing.BaseModel;
 
 namespace Boards.PcbManufacturing.ViewModels
@@ -37,8 +39,14 @@ namespace Boards.PcbManufacturing.ViewModels
                 _quoteEntries = value;
                 if (_quoteEntries != null)
                 {
+                    _quoteEntries.ToList().ForEach(x => x.PropertyChanged += (object? sender, PropertyChangedEventArgs e) =>
+                    {
+                        this.OnQuoteEntriesCollectionChanged(
+                            _quoteEntries, 
+                            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                    });
                     _quoteEntries.CollectionChanged += OnQuoteEntriesCollectionChanged;
-                    OnQuoteEntriesCollectionChanged(value, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                    OnQuoteEntriesCollectionChanged(_quoteEntries, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
                     this.OnPropertyChanged();
                 }
             }
